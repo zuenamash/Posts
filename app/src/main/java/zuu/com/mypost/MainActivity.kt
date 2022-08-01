@@ -7,18 +7,18 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import zuu.com.mypost.databinding.ActivityMainBinding
 import java.util.*
 
-private lateinit var linearLayoutManager: LinearLayoutManager
 class MainActivity : AppCompatActivity() {
+    lateinit var binding:ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        linearLayoutManager = LinearLayoutManager(this)
-//        RecyclerView.layoutManager = linearLayoutManager
-
+        binding= ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         fetchPost()
     }
+
     fun fetchPost(){
         val ApiClient = ApiClient.buildApiClient(ApiInterface::class.java)
         val request = ApiClient.getPosts()
@@ -27,11 +27,10 @@ class MainActivity : AppCompatActivity() {
             override fun onResponse(call: Call<List<Post>>, response: Response<List<Post>>) {
                 if (response.isSuccessful) {
                     var posts = response.body()
-                    Toast.makeText(baseContext, "fetched ${posts!!.size} posts", Toast.LENGTH_LONG)
-                        .show()
+                    Toast.makeText(baseContext, "fetched ${posts!!.size} posts", Toast.LENGTH_LONG).show()
 
-                    binding.rvAdapter.layoutManager= LinearLayoutManager(baseContext)
-                    binding.rvAdapter.adapter= Recyler_Adapter1(post)
+                    binding.rvMain.layoutManager= LinearLayoutManager(baseContext)
+                    binding.rvMain.adapter= Recyler_Adapter1(posts)
                 }
             }
 
