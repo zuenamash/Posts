@@ -20,8 +20,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun fetchPost(){
-        val ApiClient = ApiClient.buildApiClient(ApiInterface::class.java)
-        val request = ApiClient.getPosts()
+        val apiClient = ApiClient.buildApiClient(ApiInterface::class.java)
+        val request = apiClient.getPosts()
 
         request.enqueue(object: Callback<List<Post>> {
             override fun onResponse(call: Call<List<Post>>, response: Response<List<Post>>) {
@@ -35,9 +35,12 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<List<Post>>, t: Throwable) {
+                Toast.makeText(baseContext,t.message,Toast.LENGTH_LONG).show()
             }
 
-        })}}
+        })
+    }
+}
 
 
 

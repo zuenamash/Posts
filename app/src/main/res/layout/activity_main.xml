@@ -12,12 +12,31 @@
         android:layout_width="409dp"
         android:layout_height="729dp"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
         android:layout_marginEnd="1dp"
-        android:layout_marginBottom="1dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/tlMain"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/recycler_post"/>
+        app:layout_constraintVertical_bias="0.0"
+        tools:listitem="@layout/recycler_post" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tlMain"
+        android:layout_width="407dp"
+        android:layout_height="64dp"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="60px"
+            android:layout_marginStart="40dp"
+            android:textColor="@color/white"
+            android:text="Posts"/>
+    </androidx.appcompat.widget.Toolbar>
 </androidx.constraintlayout.widget.ConstraintLayout>

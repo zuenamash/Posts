@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:cardElevation="30dp"
+    android:layout_margin="8dp"
+    android:id="@+id/cvPost"
+    android:backgroundTint="@color/teal_700"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ComentActivity">
+
+    <TextView
+        android:id="@+id/tvPostHeader"
+        android:layout_width="0dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="16dp"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tlNewPost"
+        tools:text="TextView" />
+
+    <TextView
+        android:id="@+id/tvPostBody"
+        android:layout_width="0dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="24dp"
+        android:textSize="20sp"
+        android:layout_marginStart="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvPostHeader"
+        tools:text="TextView" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tlNewPost"
+        android:layout_width="414dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="4dp"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <!--        app:layout_constraintTop_toTopOf="@+id/textView3"-->
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:text="           My New Posts"
+            android:textColor="@color/white"
+            android:textSize="30dp" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvCommentsDisplay"
+        android:layout_width="393dp"
+        android:layout_height="574dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:listitem="@layout/displaycoment"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
